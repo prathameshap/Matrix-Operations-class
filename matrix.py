@@ -136,3 +136,26 @@ class Matrix:
 
         for row in tr_matrix:
             print(row)
+
+
+################################################################################################################
+################# Overriding arithmatic function below ########################################################
+################# Now we can add, 
+#################            sub,
+#################            multiply two matrices
+################################################################################################################
+
+    def __add__(self, other):
+        
+        if self._rows != other._rows or self._columns != other._columns:
+            return "Matrices of different dimentions cannot be added"
+
+        return [[(self._matrix[i][j]+other._matrix[i][j]) for j in  range(len(self._matrix))]for i in range(len(self._matrix))]
+
+    def __sub__(self, other):
+
+        if self._rows != other._rows or self._columns != other._columns:
+            return "Matrices of different dimentions cannot be subtracted"
+
+        return [[(self._matrix[i][j]-other._matrix[i][j])for j in range(len(self._matrix))]for i in range(len(self._matrix))]
+
